@@ -17,7 +17,6 @@ public class XoyondoTest {
     @BeforeAll
     static void registeredDriver() {
         WebDriverManager.chromedriver().setup();
-
     }
 
     @BeforeEach
@@ -31,11 +30,10 @@ public class XoyondoTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.selectRegistrationOnMenu()
                 .createRegistration()
-                .fillDateAndTimeRegistration("1:00 PM","2:00 PM")
+                .fillDateAndTimeRegistration("1:00 PM", "2:00 PM")
                 .transationAdvancedOption()
                 .transationSendMessage()
                 .checkSuccesMessage();
-
     }
 
     @AfterEach

@@ -14,12 +14,10 @@ public class SuccessRegistrationPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath="//div[contains(@class, 'alert-info')]/span")
+    @FindBy(xpath = "//div[contains(@class, 'alert-info')]/span")
     private WebElement successMesage;
 
-    public void checkSuccesMessage(){
-   //     String congratulationsText = driver.findElement(By.xpath("//div[contains(@class, 'alert-info')]/span"))
-     //           .getText();
+    public void checkSuccesMessage() {
         Assertions.assertEquals("Вы успешно создали список регистрации. Спасибо, что выбрали Xoyondo.",
                 successMesage.getText());
     }
