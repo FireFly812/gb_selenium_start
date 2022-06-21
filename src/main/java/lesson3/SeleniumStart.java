@@ -2,6 +2,7 @@ package lesson3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -95,8 +96,8 @@ public class SeleniumStart {
         //Список регистраций успешно создан
         String congratulationsText = driver.findElement(By.xpath("//div[contains(@class, 'alert-info')]/span"))
                 .getText();
-        //Assert.assertEquals("Вы успешно создали список регистрации. Спасибо, что выбрали Xoyondo.",
-        //        congratulationsText);
+        Assertions.assertEquals("Вы успешно создали список регистрации. Спасибо, что выбрали Xoyondo.",
+                congratulationsText);
         driver.quit();
 
 
