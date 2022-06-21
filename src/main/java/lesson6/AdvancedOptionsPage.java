@@ -1,5 +1,6 @@
 package lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,14 +15,15 @@ public class AdvancedOptionsPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(id="next")
+    @FindBy(id = "next")
     private WebElement advancedOptionsNextButton;
 
     private final static String NEXT_BUTTON_LOCATOR = "next";
+
+    @Step("Страница Расширенные опции и переход на страницу отпраки сообщения")
     public SendMessagesPage transationAdvancedOption() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(NEXT_BUTTON_LOCATOR)));
         advancedOptionsNextButton.click();
         return new SendMessagesPage(driver);
     }
-
 }
