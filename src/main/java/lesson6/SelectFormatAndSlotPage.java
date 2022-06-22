@@ -1,5 +1,6 @@
 package lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,6 +42,7 @@ public class SelectFormatAndSlotPage extends BasePage {
     @FindBy(id = "single-date-next")
     private WebElement singleDateNextButton;
 
+    @Step("Выбор даты и времени регистрации")
     public AdvancedOptionsPage fillDateAndTimeRegistration(String startTime, String endTime) {
         participationYesOrNoButton.click();
         //Выбрать дату
@@ -52,10 +54,10 @@ public class SelectFormatAndSlotPage extends BasePage {
                 .click();
         //выбрать время начала
         startTimeField.click();
-        startTimeList.stream().filter(t -> t.getText().contains(startTime)).findFirst().get().click();
+        startTimeList.stream().filter(t -> t.getText().equalsIgnoreCase(startTime)).findFirst().get().click();
         //Выбрать время окончания
         endTimeField.click();
-        endTimeList.stream().filter(t -> t.getText().contains(endTime)).findFirst().get().click();
+        endTimeList.stream().filter(t -> t.getText().equalsIgnoreCase(endTime)).findFirst().get().click();
         singleDateNextButton.click();
         return new AdvancedOptionsPage(driver);
     }

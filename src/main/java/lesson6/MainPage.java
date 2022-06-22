@@ -1,19 +1,14 @@
 package lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import javax.swing.*;
-import java.time.Duration;
 
 /**
  * @author Sveta
  */
-public class MainPage extends BasePage{
+public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -28,11 +23,11 @@ public class MainPage extends BasePage{
     @FindBy(xpath = "//a[@href='/signup/create/new']")
     private WebElement signupLink;
 
-    public CreateRegistrationFormPage selectRegistrationOnMenu(){
+    @Step("Вызов создания формы регистрации из главного меню")
+    public CreateRegistrationFormPage selectRegistrationFormOnMenu() {
         acceptButton.click();
         createButton.click();
         signupLink.click();
         return new CreateRegistrationFormPage(driver);
     }
-
 }
