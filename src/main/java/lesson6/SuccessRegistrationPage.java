@@ -1,5 +1,6 @@
 package lesson6;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class SuccessRegistrationPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class, 'alert-info')]/span")
     private WebElement successMesage;
 
+    @Step("Регистрация успешно создана")
     public void checkSuccesMessage() {
         Assertions.assertEquals("Вы успешно создали список регистрации. Спасибо, что выбрали Xoyondo.",
                 successMesage.getText());
